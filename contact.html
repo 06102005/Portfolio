@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">My Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <div class="contact-container">
+
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, feel free to reach out using the form below.</p>
+
+      <form action="https://formspree.io/f/xgvrkyav" method="POST">
+
+        
+        <input type="hidden" name="_next" value="https://06102005.github.io/Portfolio/thanks.html">
+        <input type="hidden" name="_method" value="GET">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p><strong>Email:</strong> divyadharshiniy123@gmail.com</p>
+        <p> <a href="https://www.linkedin.com/in/divya-dharshini-25a489327">Linked In</a></p>
+        <p><a href="https://github.com/06102005">GitHub</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Divyadharshini Y | Built using HTML, CSS, and JS</p>
+  </footer>
+</body>
+</html>
