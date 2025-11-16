@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finished Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">My To-Do App</div>
+    <ul class="nav-links">
+      <li><a href="addtask.html">Add Task</a></li>
+      <li><a href="pending.html">Pending</a></li>
+      <li><a href="finished.html" class="active">Finished</a></li>
+    </ul>
+  </nav>
+
+  <section class="todo">
+    <div class="container">
+      <h1>Finished Tasks</h1>
+      <ul id="finishedList"></ul>
+    </div>
+  </section>
+
+  <script>
+    const finishedList = document.getElementById("finishedList");
+
+    function loadFinished() {
+      const finishedTasks = JSON.parse(localStorage.getItem("finishedTasks")) || [];
+      finishedList.innerHTML = "";
+
+      if (finishedTasks.length === 0) {
+        finishedList.innerHTML = "<p>No finished tasks yet 💪</p>";
+        return;
+      }
+
+      finishedTasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${task.text} — Done: ${task.date || "N/A"} ${task.time || ""}</span>
+          <button class="delete-btn">Delete</button>
+        `;
+
+        li.querySelector(".delete-btn").addEventListener("click", () => {
+          finishedTasks.splice(index, 1);
+          localStorage.setItem("finishedTasks", JSON.stringify(finishedTasks));
+          loadFinished();
+        });
+
+        finishedList.appendChild(li);
+      });
+    }
+
+    loadFinished();
+  </script>
+</body>
+</html>
+
